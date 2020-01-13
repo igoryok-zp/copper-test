@@ -25,3 +25,10 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    GuzzleHttp\ClientInterface:
+        class: 'GuzzleHttp\Client'
+
+    App\Service\CopperService:
+        $apiKey: '%env(string:COPPER_API_KEY)%'
+        $apiEmail: '%env(string:COPPER_API_EMAIL)%'
+        $cacheLifetime: 3600
